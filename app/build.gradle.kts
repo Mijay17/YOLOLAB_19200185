@@ -6,7 +6,7 @@ plugins {
 android {
     namespace = "com.example.abconlyone"
     compileSdk {
-        version = release(36) {
+        version = release(37) {
             minorApiLevel = 1
         }
     }
@@ -69,8 +69,9 @@ dependencies {
     // LiteRT
     implementation(libs.litert)
     implementation(libs.litert.gpu)
-    implementation(libs.litert.support)
-
+    implementation(libs.litert.support) {
+        exclude(group = "com.google.ai.edge.litert", module = "litert-support-api")
+    }
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
